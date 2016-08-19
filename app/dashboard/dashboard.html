@@ -1,0 +1,21 @@
+<add-weight></add-weight>
+
+<div class="container">
+  <h2>Table:</h2>
+  <table class="weight-table table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Date</th>
+        <th>Your weight</th>
+        <th>Recommend</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="weightItem in table1" [class.warn]="weightItem.weight-0.5 > weightItem.controlweight" [class.good]="weightItem.weight < weightItem.controlweight-0.5">
+        <td>{{weightItem.date | date:'d MMM'}}</td>
+        <td>{{weightItem.weight}}</td>
+        <td>{{weightItem.controlweight}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

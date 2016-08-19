@@ -1,0 +1,14 @@
+<div class="container mb30" *ngIf="newWeight">
+  <h2>Add current weight:</h2>
+  <form class="form-inline" (ngSubmit)="addWeight()">
+    <div><label>Date:</label> {{newWeight.date | date: 'd MMM'}}</div>
+
+
+
+    <div>
+      <label>Current weight (kg): </label>
+      <input class="form-control w50" placeholder="" name="weight" [(ngModel)]="newWeight.weight">
+      <input type="submit" class="btn btn-primary" value="Add" />
+    </div>
+  </form>
+</div>

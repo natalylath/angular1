@@ -1,0 +1,22 @@
+.mb30 {
+  margin-bottom: 30px;
+}
+.weight-table .warn {
+  background-color: #ffa3a0;
+}
+.weight-table .good {
+  background-color: #91e6ff;
+}
+.w50 {
+  width: 70px !important;
+}
+.full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+  }
+  .partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+  }
