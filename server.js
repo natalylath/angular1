@@ -23,6 +23,29 @@ app.get('/dashboard', function(req, res) {
   res.json(table);
 });
 
+app.post('/dashboard', function(req, res) {
+  if(!req.body.hasOwnProperty('weight')) {
+    res.statusCode = 400;
+    return res.send('Error 400: Post syntax incorrect.');
+  }
+
+lastId += 1;
+for (var i=0; i < 3; i++) {
+    console.log(req.body.date + '------' +table[i].date);
+};
+
+var newWeight = {
+    id: lastId,
+    date : req.body.date,
+    days : 14,
+    weight : req.body.weight,
+    controlweight : req.body.controlweight
+  };
+
+table.unshift(newWeight);
+  res.json(true);
+});
+
 module.exports = app;
 
 // Start the server
