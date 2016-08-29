@@ -21,4 +21,8 @@ angular.module('myApp.dashboard', ['ngRoute'])
     { id: 1, date: new Date('2016-08-12'), days: 8,  weight: 46.0, controlweight: 46.7 }
   ];*/
 
+  $scope.$on('weightAdded', function(event) {
+    $scope.table1 = WeightItem.query();
+  });
+
 }]);

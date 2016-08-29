@@ -5,6 +5,14 @@ var app = express();
 var func = require('./expressConfig')
 func(app, express);
 
+var bodyParser = require('body-parser');
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
+
+
 // Root route
 app.get('/', function(req, res){
   res.sendfile('app/index.html');
