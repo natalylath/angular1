@@ -1,3 +1,48 @@
 <div class="container mb30">
   <h2>Settings</h2>
+
+  <form ng-submit="setDueDate(mySettings)" ng-show="!dateIsSet" class="mb30">
+    <div class="row">
+      <div class="col-md-6">
+        <p class="input-group" style="display: block; float: left; width: 100%;">
+          <label class="dp-label">What is your baby born date?</label> <input type="text" class="form-control w90" uib-datepicker-popup="{{format}}" ng-model="mySettings.dueDate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </p>
+
+        <p class="input-group" style="display: block; float: left; width: 100%;">
+          <label class="dp-label">What is weight before pregnancy in kg?</label> <input type="text" class="form-control w90" ng-model="mySettings.initWeight"  />
+        </p>
+
+        <p class="input-group" style="display: block; float: left; width: 100%;">
+          <label class="dp-label">What is height in cm?</label> <input type="text" class="form-control w90" ng-model="mySettings.initHeight"  />
+        </p>
+
+        <input type="hidden" class="form-control w90" ng-model="mySettings.diffWeeks"  />
+        <input type="hidden" class="form-control w90" ng-model="mySettings.diffPartWeek"  />
+
+        <div class="btn-group btn-group-lg">
+          <input type="submit" class="btn btn-primary" value="Save" />
+        </div>
+
+      </div>
+
+    </div>
+  </form>
+
+
+  <div ng-if="dateIsSet">
+    <div class="mb10">
+      <div ng-repeat="item in savedSettings">
+        Your settings are saved.<br/>
+        You has set due date as <strong>{{item.dueDate | date: 'dd MMMM yyyy'}}</strong>. You are on {{item.diffWeeks}} weeks and {{item.diffPartWeek}} days.
+      </div>
+    </div>
+    <div class="btn-group btn-group-lg">
+      <button class="btn btn-primary" ng-click="updateSettings()">Change</button>
+    </div>
+  </div>
+
+
 </div>

@@ -7,6 +7,8 @@
   <table class="weight-table table">
     <thead class="thead-inverse">
       <tr>
+        <th>Week</th>
+        <th>Dates</th>
         <th>Date</th>
         <th>Your weight</th>
         <th>Recommend</th>
@@ -14,6 +16,8 @@
     </thead>
     <tbody>
       <tr ng-repeat="weightItem in table1" ng-class="{warn: weightItem.weight-0.5 > weightItem.controlweight, good: weightItem.weight < weightItem.controlweight-0.5}">
+        <td>{{weightItem.week}}</td>
+        <td>{{weightItem.date1 | date:'d MMM'}} - {{weightItem.date2 | date:'d MMM'}}</td>
         <td>{{weightItem.date | date:'d MMM'}}</td>
         <td>{{weightItem.weight}}</td>
         <td>{{weightItem.controlweight}}</td>

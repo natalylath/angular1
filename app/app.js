@@ -6,8 +6,15 @@ angular.module('myApp', [
   'ngResource',
   'myApp.dashboard',
   'myApp.settings',
-  'myApp.addWeight'
+  'myApp.addWeight',
+  'ui.bootstrap'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/dashboard'});
-}]);
+}]).
+controller('Main', function($scope, $location) {
+  $scope.isActive = function (viewLocation) {
+    var active = (viewLocation === $location.path());
+    return active;
+  };
+});
